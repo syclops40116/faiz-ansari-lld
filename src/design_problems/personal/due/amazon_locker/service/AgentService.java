@@ -1,4 +1,10 @@
-package design_problems.personal.due.amazon_locker;
+package design_problems.personal.due.amazon_locker.service;
+
+import design_problems.personal.due.amazon_locker.model.DeliveryAgent;
+import design_problems.personal.due.amazon_locker.model.Locker;
+import design_problems.personal.due.amazon_locker.model.Package;
+import design_problems.personal.due.amazon_locker.repository.AgentRepository;
+import design_problems.personal.due.amazon_locker.strategy.agentassignment.AgentAssignmentStrategy;
 
 import java.util.List;
 
@@ -12,7 +18,7 @@ public class AgentService {
     }
 
     public DeliveryAgent assignAgentForDelivery(Locker locker, Package pkg) {
-        String zipcode = locker.zipcode;
+        String zipcode = locker.getZipcode();
         List<DeliveryAgent> agents = repository.getByZip(zipcode);
 
         if(agents == null || agents.isEmpty()) {
@@ -25,7 +31,7 @@ public class AgentService {
             throw new RuntimeException("Could not assign the delivery agent");
         }
 
-        System.out.println("Package has been assigned to " + assignedAgent.agentId);
+        System.out.println("Package has been assigned to " + assignedAgent.getAgentId());
 
         return assignedAgent;
     }

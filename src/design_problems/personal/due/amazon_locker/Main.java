@@ -1,5 +1,12 @@
 package design_problems.personal.due.amazon_locker;
 
+import design_problems.personal.due.amazon_locker.model.Locker;
+import design_problems.personal.due.amazon_locker.model.Package;
+import design_problems.personal.due.amazon_locker.enums.Size;
+import design_problems.personal.due.amazon_locker.model.Slot;
+import design_problems.personal.due.amazon_locker.service.LockerService;
+import design_problems.personal.due.amazon_locker.strategy.slotassignment.FirstFitSlotAssignmentStrategy;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -9,7 +16,7 @@ public class Main {
 
         lockerService.addLocker("123456", "Twin tower");
 
-        Package pkg = new Package(Size.MEDIUM, UUID.randomUUID().toString());
+        design_problems.personal.due.amazon_locker.model.Package pkg = new Package(Size.MEDIUM, UUID.randomUUID().toString());
 
         List<Locker> eligibleLockers = lockerService.getEligibleLockersByZipAndSize("123456", pkg);
 

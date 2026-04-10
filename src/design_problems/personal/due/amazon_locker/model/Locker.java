@@ -1,4 +1,6 @@
-package design_problems.personal.due.amazon_locker;
+package design_problems.personal.due.amazon_locker.model;
+
+import design_problems.personal.due.amazon_locker.enums.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +8,13 @@ import java.util.UUID;
 
 public class Locker {
 
-    String lockerId;
+    private String lockerId;
 
-    String zipcode;
+    private String zipcode;
 
-    String address;
+    private String address;
 
-    List<Slot> slots;
+    private List<Slot> slots;
 
     public List<Slot> getAllSlots() {
         return this.slots;
@@ -34,5 +36,21 @@ public class Locker {
             }
             slots.add(new Slot(lockerId, lockerId + ":" + i, slotSize));
         }
+    }
+
+    public List<Slot> getSlots() {
+        return slots;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getLockerId() {
+        return lockerId;
+    }
+
+    public String getZipcode() {
+        return zipcode;
     }
 }

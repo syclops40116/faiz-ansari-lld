@@ -1,4 +1,6 @@
-package design_problems.personal.due.amazon_locker;
+package design_problems.personal.due.amazon_locker.repository;
+
+import design_problems.personal.due.amazon_locker.model.DeliveryAgent;
 
 import java.util.*;
 
@@ -12,8 +14,8 @@ public class AgentRepository {
     }
 
     public void save(DeliveryAgent agent) {
-        agentsMap.put(agent.agentId, agent);
-        for(String zip: agent.serviceableZipcodes) {
+        agentsMap.put(agent.getAgentId(), agent);
+        for(String zip: agent.getServiceableZipcodes()) {
             List<DeliveryAgent> agentList = zipToAgents.getOrDefault(zip, new ArrayList<>());
             agentList.add(agent);
             zipToAgents.put(zip, agentList);

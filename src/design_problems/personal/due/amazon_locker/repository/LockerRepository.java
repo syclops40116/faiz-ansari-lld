@@ -1,4 +1,6 @@
-package design_problems.personal.due.amazon_locker;
+package design_problems.personal.due.amazon_locker.repository;
+
+import design_problems.personal.due.amazon_locker.model.Locker;
 
 import java.util.Map;
 import java.util.List;
@@ -10,9 +12,9 @@ public class LockerRepository {
     Map<String, Locker> lockerMap = new HashMap<>();
 
     public void save(Locker locker) {
-        if(!lockerMap.containsKey(locker.lockerId)) {
-            String lockerId = locker.lockerId;
-            String zipcode = locker.zipcode;
+        if(!lockerMap.containsKey(locker.getLockerId())) {
+            String lockerId = locker.getLockerId();
+            String zipcode = locker.getZipcode();
 
             lockerMap.put(lockerId, locker);
             List<Locker> lockers = zipcodeToLockersMap.getOrDefault(zipcode, new ArrayList<>());
